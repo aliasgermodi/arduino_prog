@@ -5,7 +5,7 @@ int led = 13;   // led on pine 13
 void setup()
 {
   pinMode(led, OUTPUT);    //pin 13 as output
-  
+  digitalWrite(led,HIGH);
   Serial.begin(9600);    //initialize serial communication at 9600bps
   Serial.flush();  // wait for the transission to complete
 }
