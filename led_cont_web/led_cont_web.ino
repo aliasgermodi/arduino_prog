@@ -1,12 +1,10 @@
 	
 
-    //simple button GET server code to control servo and arduino pin 5
-    //for use with IDE 1.0
+    //SWITCH ON OR SWITCH OFF LED ON PIN 13 FROM WEB PAGE
     //open serial monitor to see what the arduino receives
     //use the \ slash to escape the " in the html
     //for use with W5100 based ethernet shields
-    //Powering a servo from the arduino usually DOES NOT WORK.
-    //note that the below bug fix may be required
+    
     
      
     #include <SPI.h>
@@ -23,10 +21,12 @@
     String readString;
      
     //////////////////////
+    
+    int led = 13;
      
     void setup(){
      
-      pinMode(6, OUTPUT); //pin selected to control
+      pinMode(led, OUTPUT); //pin selected to control
       //start Ethernet
       Ethernet.begin(mac, ip);
       server.begin();
@@ -67,10 +67,10 @@
               client.println("<meta name='apple-mobile-web-app-capable' content='yes' />");
               client.println("<meta name='apple-mobile-web-app-status-bar-style' content='black-translucent' />");
               client.println("<link rel='stylesheet' type='text/css' href='http://homeautocss.net84.net/a.css' />");
-              client.println("<TITLE>Home Automation</TITLE>");
+              client.println("<TITLE>LED CONTROL</TITLE>");
               client.println("</HEAD>");
               client.println("<BODY>");
-              client.println("<H1>Home Automation</H1>");
+              client.println("<H1>LED CONTROL</H1>");
               client.println("<hr />");
               client.println("<br />");
              
@@ -87,13 +87,13 @@
               ///////////////////// control arduino pin
               if(readString.indexOf("?lighton") >0)//checks for on
               {
-                digitalWrite(6, HIGH);    // set pin 4 high
+                digitalWrite(led, HIGH);    // set pin 4 high
                 Serial.println("Led On");
               }
               else{
               if(readString.indexOf("?lightoff") >0)//checks for off
               {
-                digitalWrite(6, LOW);    // set pin 4 low
+                digitalWrite(led, LOW);    // set pin 4 low
                 Serial.println("Led Off");
               }
               }
