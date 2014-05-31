@@ -7,7 +7,7 @@
     //for use with W5100 based ethernet shields
     //Powering a servo from the arduino usually DOES NOT WORK.
     //note that the below bug fix may be required
-    // http://code.google.com/p/arduino/issues/detail?id=605
+    
      
     #include <SPI.h>
     #include <Ethernet.h>
@@ -15,10 +15,9 @@
     #include <Servo.h>
     Servo myservo;  // create servo object to control a servo
      
-    byte mac[] = { 0xDE, 0xAD, 0xBE, 0xEF, 0xFE, 0xED }; //physical mac address
-    byte ip[] = { 192, 168, 1, 177 }; // ip in lan
-    byte gateway[] = { 192, 168, 1, 1 }; // internet access via router
-    byte subnet[] = { 255, 255, 255, 0 }; //subnet mask
+    byte mac[] = { 0x90, 0xA2, 0xDA, 0x0E, 0x9E, 0x63 }; //physical mac address
+    byte ip[] = { 192, 168, 1, 100 }; // ip in lan
+    
     EthernetServer server(80); //server port
      
     String readString;
@@ -29,7 +28,7 @@
      
       pinMode(6, OUTPUT); //pin selected to control
       //start Ethernet
-      Ethernet.begin(mac, ip, gateway, subnet);
+      Ethernet.begin(mac, ip);
       server.begin();
       //the pin for the servo co
       //enable serial data print
