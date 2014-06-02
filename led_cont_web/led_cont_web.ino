@@ -14,7 +14,7 @@
     Servo myservo;  // create servo object to control a servo
      
     byte mac[] = { 0x90, 0xA2, 0xDA, 0x0E, 0x9E, 0x63 }; //physical mac address
-    byte ip[] = { 192, 168, 1, 100 }; // ip in lan
+    byte ip[] = { 10, 0, 1, 5 }; // ip in lan
     
     EthernetServer server(80); //server port
      
