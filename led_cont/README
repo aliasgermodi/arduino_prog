@@ -1,0 +1,7 @@
+LED intesity control
+
+upload the led_cont.ino to arduino
+
+run led_control.py 
+
+Used pwm pin 9 and serial mode.
